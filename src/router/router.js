@@ -4,7 +4,8 @@ const port = 3000
 
 /**
  * Middleware express.json()
- * Basicamente le estamos diciendo a node que pueda comprender los objetos Json
+ * Basicamente le estamos diciendo a node que pueda comprender los objetos 
+ * toma los request body y los convierte en formato Json
  */
 app.use(express.json());
 
@@ -45,19 +46,19 @@ app.get('/user', (req, res) => {
 
 //#region Method:POST
 /**
- * Peticion POST que recibe los datos enviado por el Cliente mediante una ruta dinamica
- * Desde PostMan añadir a los Headers : Indicando
- * Que la aplicacion desea recibir un dato de tipo  ap../json
- * =======================================
- * Uso desde POSTMAN
- * =======================================
- * Key: Content-type 
- * value: application/json 
- * method post : http://localhost:3000/user/
- * body: json {sobrina: 'Cony version 2.0', sobrino: 'Sebita version 2.0'}  
- * ======================================
- *  Importante
- * ======================================
+  Peticion POST que recibe los datos enviado por el Cliente mediante una ruta dinamica
+  Desde PostMan añadir a los Headers : Indicando
+  Que la aplicacion desea recibir un dato de tipo  ap../json
+  =======================================
+            Uso desde POSTMAN
+  =======================================
+  Key: Content-type 
+  value: application/json 
+  method post : http://localhost:3000/user/
+  body: json {sobrina: 'Cony version 2.0', sobrino: 'Sebita version 2.0'}  
+  ======================================
+                Importante
+  ======================================
     Si en el request recibimos = undefined 
     utilizar middleware app.use(express.json())
 
@@ -96,4 +97,4 @@ app.put('/user/:userId', (req, res) => {
   res.send(`User ${req.params.userId} updated`);
 });
  
-app.listen(port, () => console.log(`Example app listening on port port!`))
+app.listen(port, () => console.log(`listening on port port!`))
